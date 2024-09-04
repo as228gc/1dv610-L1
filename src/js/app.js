@@ -11,7 +11,6 @@ function encrypt (decrypted, offset = 2) {
   const encrypted = []
   const lowerCase = decrypted.toLowerCase()
   for (let i = 0; i < lowerCase.length; i++) {
-    console.log(alphabet.indexOf(lowerCase[i]))
     encrypted[i] = alphabet[alphabet.indexOf(lowerCase[i]) + offset]
   }
   return encrypted.join('')
@@ -31,6 +30,4 @@ button.addEventListener('click', () => {
     button.innerText = 'Encrypt name'
   }
   isToggled = !isToggled
-  console.log(isToggled)
-  console.log(encrypt(userInput))
 })
