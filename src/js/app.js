@@ -10,7 +10,7 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
 function encrypt (decrypted, offset = 2) {
   const encrypted = []
   const lowerCase = decrypted.toLowerCase()
-  for (let i = 0; i < lowerCase.length; i++) {
+  for (let i = 0; i < lowerCase.length; i++) {
     console.log(alphabet.indexOf(lowerCase[i]))
     encrypted[i] = alphabet[alphabet.indexOf(lowerCase[i]) + offset]
   }
