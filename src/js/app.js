@@ -17,16 +17,16 @@ function encrypt (decrypted, offset = 2) {
 }
 
 const userInput = prompt('Enter your name')
-document.getElementById('name').innerText = userInput
+document.getElementById('name').innerText = `Hello, ${userInput}!`
 let isToggled = false
 const button = document.getElementById('toggle')
 button.addEventListener('click', () => {
   const nameDisplay = document.getElementById('name')
   if (!isToggled) {
-    nameDisplay.innerText = encrypt(userInput)
+    nameDisplay.innerText = `Hello, ${encrypt(userInput)}!`
     button.innerText = 'Decrypt name'
   } else {
-    nameDisplay.innerText = userInput
+    nameDisplay.innerText = `Hello, ${userInput}!`
     button.innerText = 'Encrypt name'
   }
   isToggled = !isToggled
