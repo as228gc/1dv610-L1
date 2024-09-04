@@ -18,14 +18,17 @@ function encrypt (decrypted, offset = 2) {
 }
 
 const userInput = prompt('Enter your name')
+document.getElementById('name').innerText = userInput
 let isToggled = false
 const button = document.getElementById('toggle')
 button.addEventListener('click', () => {
   const nameDisplay = document.getElementById('name')
   if (!isToggled) {
     nameDisplay.innerText = encrypt(userInput)
+    button.innerText = 'Decrypt name'
   } else {
     nameDisplay.innerText = userInput
+    button.innerText = 'Encrypt name'
   }
   isToggled = !isToggled
   console.log(isToggled)
