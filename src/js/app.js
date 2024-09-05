@@ -1,20 +1,6 @@
-const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'å', 'ä', 'ö']
+import { ceasarCipher } from './ciphers/ceasar.js'
+import { atbashCipher } from './ciphers/atbash.js'
 
-/**
- * Encrypts a string by an offset.
- *
- * @param {string} decrypted - The string to be encrypted.
- * @param {number} offset - By which number the character should be offset
- * @returns {string} - The encrypted string
- */
-function encryptOffset (decrypted, offset = 2) {
-  const encrypted = []
-  const lowerCase = decrypted.toLowerCase()
-  for (let i = 0; i < lowerCase.length; i++) {
-    encrypted[i] = alphabet[alphabet.indexOf(lowerCase[i]) + offset]
-  }
-  return encrypted.join('')
-}
 /**
  * Displays the given name with a greeting.
  *
@@ -25,9 +11,9 @@ function setNameDisplay (name) {
   nameDisplay.innerText = `Hello, ${name}!`
 }
 
-const form = document.querySelector('form')
+const nameForm = document.querySelector('#name-form')
 let userInput
-form.addEventListener('submit', (event) => {
+nameForm.addEventListener('submit', (event) => {
   event.preventDefault()
   const inputField = document.getElementById('name-input')
   userInput = inputField.value
@@ -37,10 +23,12 @@ form.addEventListener('submit', (event) => {
 })
 
 let isToggled = false
-const button = document.getElementById('toggle')
-button.addEventListener('click', () => {
+const cipherForm = document.querySelector('#cipher-form')
+cipherForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const button = document.querySelector('#toggle')
   if (!isToggled) {
-    setNameDisplay(encryptOffset(userInput))
+    setNameDisplay(atbashCipher(userInput))
     button.innerText = 'Decrypt name'
   } else {
     setNameDisplay(userInput)

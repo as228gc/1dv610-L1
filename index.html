@@ -8,13 +8,21 @@
 </head>
 <body>
   <div class="container">
-    <form>
+    <form id="name-form">
       <input type="text" placeholder="Enter your name" id="name-input">
       <button>Submit name</button>
     </form>
 
     <h1 id="name"></h1>
-    <button id="toggle" class="d–none">Encrypt name</button>
+
+    <form id="cipher-form">
+      <label for="ciphers">Select a cipher to encrypt your name.</label>
+      <select id="ciphers">
+        <option value="ceasar">Ceasar</option>
+        <option value="atbash">Atbash</option>
+      </select>
+      <button type="submit" id="toggle" class="d–none">Encrypt name</button>
+    </form>
   </div>
   <script type="module" src="./src/js/app.js"></script>
 </body>
