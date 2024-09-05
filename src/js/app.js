@@ -15,18 +15,35 @@ function encryptOffset (decrypted, offset = 2) {
   }
   return encrypted.join('')
 }
+/**
+ * Displays the given name with a greeting.
+ *
+ * @param {string} name - The name to be displayed.
+ */
+function setNameDisplay (name) {
+  const nameDisplay = document.querySelector('#name')
+  nameDisplay.innerText = `Hello, ${name}!`
+}
 
-const userInput = prompt('Enter your name')
-document.getElementById('name').innerText = `Hello, ${userInput}!`
+const form = document.querySelector('form')
+let userInput
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+  const inputField = document.getElementById('name-input')
+  userInput = inputField.value
+  inputField.value = ''
+  setNameDisplay(userInput)
+  document.querySelector('#toggle').classList.replace('d–none', 'd–block') // Display the button
+})
+
 let isToggled = false
 const button = document.getElementById('toggle')
 button.addEventListener('click', () => {
-  const nameDisplay = document.getElementById('name')
   if (!isToggled) {
-    nameDisplay.innerText = `Hello, ${encryptOffset(userInput)}!`
+    setNameDisplay(encryptOffset(userInput))
     button.innerText = 'Decrypt name'
   } else {
-    nameDisplay.innerText = `Hello, ${userInput}!`
+    setNameDisplay(userInput)
     button.innerText = 'Encrypt name'
   }
   isToggled = !isToggled

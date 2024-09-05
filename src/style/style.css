@@ -17,11 +17,23 @@ body {
   align-items: center;
 }
 
-#toggle {
-  display: block;
-}
 
 button {
-  padding: 1rem 2rem;
+  padding: .8rem 2rem;
   font-size: 1.2rem;
+}
+
+input {
+  font-size: 1.2rem;
+  border-radius: .2rem;
+  padding: .8rem 0;
+  text-align: center;
+}
+
+.d–none {
+  display: none;
+}
+
+.d–block {
+  display: block;
 }
