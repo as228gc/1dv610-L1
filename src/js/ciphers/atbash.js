@@ -12,6 +12,5 @@ export function atbashCipher (name) {
   for (const character of lowerCase) {
     encrypted.push(alphabet[(alphabet.length - 1) - (alphabet.indexOf(character))])
   }
-  console.log(encrypted)
   return encrypted.join('')
 }
