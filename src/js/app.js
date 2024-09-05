@@ -7,7 +7,7 @@ const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm
  * @param {number} offset - By which number the character should be offset
  * @returns {string} - The encrypted string
  */
-function encrypt (decrypted, offset = 2) {
+function encryptOffset (decrypted, offset = 2) {
   const encrypted = []
   const lowerCase = decrypted.toLowerCase()
   for (let i = 0; i < lowerCase.length; i++) {
@@ -23,7 +23,7 @@ const button = document.getElementById('toggle')
 button.addEventListener('click', () => {
   const nameDisplay = document.getElementById('name')
   if (!isToggled) {
-    nameDisplay.innerText = `Hello, ${encrypt(userInput)}!`
+    nameDisplay.innerText = `Hello, ${encryptOffset(userInput)}!`
     button.innerText = 'Decrypt name'
   } else {
     nameDisplay.innerText = `Hello, ${userInput}!`
